@@ -1,7 +1,6 @@
 import React from 'react';
 import TheatreCurtains from './TheatreCurtains.jsx';
 import MarqueeBulbs from './MarqueeBulbs.jsx';
-import { PACKAGES, formatPeso } from '../lib/composeStrip.js';
 
 export default function LandingPage({ onEnter }) {
   return (
@@ -31,16 +30,7 @@ export default function LandingPage({ onEnter }) {
             <span aria-hidden="true">→</span>
           </button>
 
-          <ul className="flex flex-wrap items-center justify-center gap-2 text-sm text-cream/85">
-            {PACKAGES.map((p) => (
-              <li
-                key={p.id}
-                className="rounded-full border border-gold-400/40 bg-velvet-950/60 px-4 py-1.5 backdrop-blur-sm"
-              >
-                {p.label} · <span className="font-bold text-gold-300">{formatPeso(p.price)}</span>
-              </li>
-            ))}
-          </ul>
+          <p className="text-sm text-cream/85">Four frames, custom filters, and a keepsake strip to save.</p>
           <p className="text-xs text-cream/60">Your browser will ask to use the camera. Photos stay on your device.</p>
         </div>
       </section>

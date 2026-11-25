@@ -1,13 +1,6 @@
 import { drawFilteredPhoto } from './filters.js';
 
-/* ---------- packages ---------- */
-
-export const PACKAGES = [
-  { id: 'two', frames: 2, price: 50, label: '2 Frames' },
-  { id: 'four', frames: 4, price: 100, label: '4 Frames' },
-];
 export const MAX_RETAKES = 2;
-export const formatPeso = (n) => `₱${n}`;
 
 /* ---------- strip geometry (shared by preview, export and the template) ---------- */
 

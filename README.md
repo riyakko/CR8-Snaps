@@ -21,7 +21,7 @@ Production build: `npm run build`, then `npm run preview`.
 | --- | --- |
 | Landing | Curtain backdrop, marquee title, "Enter the Booth" CTA |
 | Curtain transition | Closes, holds with a loading label, then opens on every view change (lobby ↔ booth, booth → result, edit, new session) |
-| Packages | 2 frames ₱50 or 4 frames ₱100, shown in the header, picker and summary. Locked after the first snap (use "Start over") |
+| Capture | Four frames per session, with per-frame retakes |
 | Camera | `getUserMedia`, loading state, friendly errors (blocked, no camera, in use, unsupported), 3-2-1 countdown, flash |
 | Retakes | Each frame can be retaken at most 2 times. Counter reads "Retakes left: 2/2 → 1/2 → 0/2" and the button disables at 0. Cancelled shots don't use a retake |
 | Filters | Original, Vintage Warm, Noir, Sepia, Retro Film (grain + halftone + vignette), Vivid. Live on the video, applied to captured frames, and baked into the export. Can be changed after capture |
@@ -45,7 +45,6 @@ src/
     Photobooth.jsx           booth + result screens, owns the session state
     CameraView.jsx           webcam, countdown, flash (imperative snap())
     FrameSlots.jsx           captured frames + retake counters
-    PackageSelector.jsx
     FilterSelector.jsx
     FrameCustomizer.jsx      presets, upload slot, guide download
     PhotoStripPreview.jsx    live canvas strip
@@ -61,4 +60,4 @@ src/
 - Raw (unfiltered) captures are kept in memory, which is why the filter can change after shooting.
 - Browsers without canvas `ctx.filter` support (Safari) use a built-in pixel-math fallback so exports still match the preview. The grain effect on Retro Film shows only in the captured strip, not on the live video.
 - Nothing is uploaded anywhere. Photos never leave the browser.
-- Payment isn't wired up. Prices are displayed only.
+- There is no checkout or payment flow.
